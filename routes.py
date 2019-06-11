@@ -57,7 +57,7 @@ def make_prediction():
         #pkl_file = open('lr.pkl', 'rb')
         #model = pickle.load(pkl_file)
         model = joblib.load('lr.pkl')
-        prediction_o = model.predict_proba(np.array(entered_li).reshape(1, -1))[0][1]
+        prediction_o = model.predict_proba(np.array(entered_li).reshape(1, -1))[0][1] * 100
         prediction_d = 1 - prediction_o
         #prediction = model.predict(entered_li.values.reshape(1, -1))
         
@@ -86,8 +86,8 @@ def make_prediction():
             label_d = '99.49'
             
         else:
-            label_o = str(np.squeeze(prediction_o.round(4)) * 100)
-            label_d = str(np.squeeze(prediction_d.round(4)) * 100)
+            label_o = str(np.squeeze(prediction_o.round(4)))
+            label_d = str(np.squeeze(prediction_d.round(4)))
             #label_o = str(prediction_o * 100)[:5]
             #label_d = str(prediction_d * 100)[:5]
 
