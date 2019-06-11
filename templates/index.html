@@ -5,33 +5,31 @@
 
     			<form name="predictForm" method="POST" action="/predict" onsubmit="return validateForm()">
 
-    				 <div class="form-group">
+    				 <div class="form-group form">
 
     				 		<div class="row">
 
     				 	<div class="col-lg-6">
 
-    				 		<h2 style="color:GhostWhite;">NFL Live Win Probability Estimator</h2><br>
-						<!--
-						<p><small>Trained on 10 years of NFL play-by-play data from 2009-2018, the prediction model uses information on time remaining, down, yards to go, field position, score, homefield advantage, and difference in team strength
-						to calculate the win probability (WP) of an NFL team in that specific game situation, during the game. The model calculates the WP from the perspective of the team with the ball (the offense).
-						To get the WP from the perspective of the defense, we take 1 - WP of the offense. For the point spread, more info can be found at bottom. <br></small></p>
-						-->
-						<h4>Sample situation <br></h3>
-						<p><small>It is February 5, 2017. With 8:31 left in the 3rd quarter, the New England Patriots receive the ball on 1st & 10 at their own 25 yard line, trailing 28-3 to the Atlanta Falcons.
+    				 		<h2 class="text-success">In-Game NFL Win Probability Model</h2><br>
+						
+						<h4 class="text-success"> Sample situation <br></h3>
+						<p class="text-dark"><small>It is February 5, 2017. With 8:31 left in the 3rd quarter, the New England Patriots receive the ball on 1st & 10 at their own 25 yard line, trailing 28-3 to the Atlanta Falcons.
 						The Patriots are the away team (actually, both teams are an away team because this game is on a neutral field) and the Patriots entered the game as 3.5 point favorites. <br>
-						<br>
-						The model calculates the WP from the perspective of the team with the ball (the offense).<br>
+						Given this situation, we can estimate the probability the Patriots eventually win the game.<br>
+						<span class="text-dark">
+						The model calculates the win probability (WP) of the team with the ball (the offense).<br>
 						Quarter: 3, Minutes: 8, Seconds: 31, Score Difference: -25, Fav/Dog: 1, Home/Away: 0, Point Spread: 3, Point Spread Half: 0.5, Down: 1, Distance: 10, Ball Location: 25</small></p>
-    				 		<h3 style="color:Lavender;">Team on Offense WP:
-						<h2 style="color:Khaki;">{% if labelo %} {{ labelo }} {% endif %}%</h2>
+    				 		</span>
+						<h3 class="text-warning">Team on Offense WP:
+						<h2 class="text-warning">{% if labelo %} {{ labelo }} {% endif %}%</h2>
 						</h3>
 						<br>
-						<h3 style="color:Lavender;">Team on Defense WP:
-						<h2 style="color:Khaki;">{% if labeld %} {{ labeld }} {% endif %}%</h2>
+						<h3 class="text-primary";">Team on Defense WP:
+						<h2 class="text-primary">{% if labeld %} {{ labeld }} {% endif %}%</h2>
 						</h3>
 							  <br>
-							  <button class="btn btn-lg btn-primary" type="submit">
+							  <button class="btn btn-lg btn-success" type="submit">
 							  	Predict
 							  </button>
 
@@ -48,8 +46,8 @@
                    <option>3</option>
                    <option>4</option>
                  </select>
-                <label for="month">Quarter</label><br>
-                <p><small style="color:Gainsboro;">Which quarter is the game in</small></p>
+                <label for="month" class="text-danger">Quarter</label><br>
+                <p><small class="text-dark">Which quarter is the game in</small></p>
 
 						    <select name="Seconds" class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="promo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						      <option>59</option>
@@ -113,16 +111,16 @@
 						      <option>1</option>
 						      <option>0</option>
 						    </select>
-						    <label for="promo">Seconds</label>
-						    <p><small style="color:Gainsboro;">Seconds remaining in the minute that is remaining</small></p>
+						    <label for="promo" class="text-danger">Seconds</label>
+						    <p><small class="text-dark">Seconds remaining <br>(in the minute that is remaining)</small></p>
 						    
 		
 						    <select name="Favorite" class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="school_holliday" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   						      <option>1</option>
   						      <option>0</option>
   						    </select>
-  						    <label for="school_holliday">Favorite or Underdog</label>
-                  <p><small style="color:Gainsboro;">Before the game started, was the team on offense favored to win? 1 = Yes | 0 = No</small></p>
+  						    <label for="school_holliday" class="text-danger">Favorite or Underdog</label>
+                  <p><small class="text-dark">Before the game, was the team on offense favored to win? 1 = Yes | 0 = No</small></p>
 	  
 							
 						    <select name="PointSpread" class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="state_holliday" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -154,8 +152,8 @@
 						      
 						      
 						    </select>
-						    <label for="point_spread">Point Spread (abs value)</label><br>
-                <p><small style="color:Gainsboro;">How much was the favorite expected to win by? (predicted margin of victory)</small></p>
+						    <label for="point_spread" class="text-danger">Point Spread (abs value)</label><br>
+                <p><small class="text-dark">How much was the favorite expected to win by? (predicted margin of victory)</small></p>
 
                 <select name="Down" class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="assortment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						      <option>1</option>
@@ -163,18 +161,18 @@
 						      <option>3</option>
 						      <option>4</option>
 						    </select>
-						    <label for="assortment">Down</label><br>
-                <p><small style="color:Gainsboro;">1st | 2nd | 3rd | 4th</small></p>
+						    <label for="assortment" class="text-danger">Down</label><br>
+                <p><small class="text-white">1st | 2nd | 3rd | 4th</small></p>
 	
 	
-	<h5>Ball Location</h5>
+	<h5 class="text-danger">Ball Location (1 - 99)</h5>
 						    <div class="input-group">
 								  <div class="input-group-prepend">
 								    <span class="input-group-text"></span>
 								  </div>
 								  <input type="text" name="Field" value="25" class="form-control" aria-label="With textarea">
 								</div>
-                <p><small style="color:Gainsboro;">Please input integers between 1 - 99.<br>
+                <p><small class="text-dark">Please input any integer between 1 - 99.<br>
                   1 is the team's own 1 yard line. 99 is the opponent's 1 yard line.</small></p>
 								</div>
 
@@ -197,8 +195,8 @@
 						      <option>1</option>
 						      <option>0</option>
   						    </select>
-  						    <label for="day_of_the_week">Minutes Remaining</label><br>
-                  <p><small style="color:Gainsboro;">Minutes remaining in the quarter</small></p>
+  						    <label for="day_of_the_week" class="text-danger">Minutes Remaining</label><br>
+                  <p><small class="text-dark">Minutes remaining in the quarter</small></p>
 
                   <select name="Score" class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="promo2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   						      <option>-42</option>
@@ -287,8 +285,8 @@
 						      <option>41</option>
 						      <option>42</option>
   						    </select>
-  						    <label for="promo2">Score Difference</label>
-  						    <p><small style="color:Gainsboro;">How much is the offense trailing/leading by?<br>(losing is negative, winning is positive)</small></p>
+  						    <label for="promo2" class="text-danger">Score Difference</label>
+  						    <p><small class="text-dark">How much is the offense trailing/leading? <br>trailng (-), leading (+)</small></p>
 						    
 						    
 	  
@@ -296,8 +294,8 @@
 						      <option>1</option>
 						      <option>0</option>
 						    </select>
-						    <label for="state_holliday">Home or Away</label><br>
-                <p><small style="color:Gainsboro;">Is the team on offense playing at home? <br>1 = Home | 0 = Away</small></p>
+						    <label for="state_holliday" class="text-danger">Home or Away</label><br>
+                <p><small class="text-dark">Is the team on offense playing at home? <br>1 = Home | 0 = Away</small></p>
 	
 	
 	
@@ -305,8 +303,8 @@
   						      <option>0.0</option>
   						      <option>0.5</option>
   						    </select>
-  						    <label for="ps_half">Point Spread Half</label>
-                  <p><small style="color:Gainsboro;">Is the point spread a half number? <br>0.5 = Yes | 0.0 = No</small></p>
+  						    <label for="ps_half" class="text-danger">Point Spread Half</label>
+                  <p><small class="text-dark">Is the point spread a half number? <br>0.5 = Yes | 0.0 = No</small></p>
 	  
 
                   <select name="Distance" class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="store_type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -342,8 +340,8 @@
 						      <option>30</option>
                     
   						    </select>
-  						    <label for="store_type">Distance to 1st</label><br>
-                  <p><small style="color:Gainsboro;">Yards needed to reach a 1st down</small></p>
+  						    <label for="store_type" class="text-danger">Distance to 1st</label><br>
+                  <p><small class="text-dark">Yards needed to reach a 1st down</small></p>
 
                 </div>
 

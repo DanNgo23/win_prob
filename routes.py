@@ -61,19 +61,27 @@ def make_prediction():
         prediction_d = 1 - prediction_o
         #prediction = model.predict(entered_li.values.reshape(1, -1))
         
-        if (time_left < (42 / 3600)) & (score > 0):
+        if (time_left == 0) & (score > 0):
+            label_o = '100.00'
+            label_d = '00.00'
+            
+        elif (time_left == 0) & (score < 0):
+            label_o = '00.00'
+            label_d = '100.00'
+            
+        elif (0 < time_left < (42 / 3600)) & (score > 0):
             label_o = '99.99'
             label_d = '0.01'
             
-        elif (time_left < (61 / 3600)) & (score > 0):
+        elif (0 < time_left < (61 / 3600)) & (score > 0):
             label_o = '99.49'
             label_d = '0.51'
             
-        elif (time_left < (42 / 3600)) & (score < -8):
+        elif (0 < time_left < (42 / 3600)) & (score < -8):
             label_o = '0.01'
             label_d = '99.99'
         
-        elif (time_left < (61 / 3600)) & (score < -8):
+        elif (0 < time_left < (61 / 3600)) & (score < -8):
             label_o = '0.51'
             label_d = '99.49'
             
