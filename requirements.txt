@@ -19,7 +19,7 @@ itsdangerous==0.24
 Jinja2==2.9.6
 joblib==0.13.2
 MarkupSafe==1.0
-numpy==1.14.2
+numpy==1.22.0
 numpydoc==0.7.0
 pandas==0.20.3
 pandocfilters==1.4.2
