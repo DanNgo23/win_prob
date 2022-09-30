@@ -17,7 +17,7 @@ Flask-Cors==3.0.3
 gunicorn==19.9.0
 itsdangerous==0.24
 Jinja2==2.9.6
-joblib==0.13.2
+joblib==1.2.0
 MarkupSafe==1.0
 numpy==1.14.2
 numpydoc==0.7.0
